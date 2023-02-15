@@ -7,13 +7,18 @@ const TableRow = (props: { data: Data }) => {
   return (
     <tr className="table-row">
       <td>
-        <p>{props.data.title}</p>
+        <div className="checkbox">
+          <input type="checkbox" id="title" name="title" />
+        </div>
         <div>
-          {props.data.tags.map((t, i) => (
-            <span className="tags" key={i}>
-              {t}
-            </span>
-          ))}
+          <p>{props.data.title}</p>
+          <div>
+            {props.data.tags.map((t, i) => (
+              <span className="tags" key={i}>
+                {t}
+              </span>
+            ))}
+          </div>
         </div>
       </td>
       <td>{props.data.dateFound}</td>
@@ -26,14 +31,14 @@ const TableRow = (props: { data: Data }) => {
         <span className="tags assets">{props.data.affectedAssets}</span>
       </td>
       <td>
-        <span className={`tags ${statusType}`}>
+        <button className={`tags ${statusType}`}>
           {statusType === 'create' ? (
             <img alt={statusType} src={CreateJira} />
           ) : (
             <img alt={statusType} src={OpenJira} />
           )}
           {props.data.status}
-        </span>
+        </button>
       </td>
     </tr>
   )

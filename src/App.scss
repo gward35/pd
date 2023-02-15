@@ -1,3 +1,8 @@
+html,
+body {
+  background-color: #000;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -11,13 +16,46 @@
 
   .filter-container {
     display: flex;
-    padding: 20px 20px 10px 20px;
+    padding: 20px 20px 25px 20px;
     background-color: #000;
+    border-top: 1px solid #474747;
+    border-left: 1px solid #474747;
+    border-right: 1px solid #474747;
+    justify-content: space-between;
+    align-items: center;
 
-    div {
+    ul {
+      display: flex;
+      padding-left: 0;
+
+      li {
+        list-style: none;
+        color: #a1a1aa;
+        font-weight: 600;
+        margin-right: 20px;
+        padding-bottom: 8px;
+
+        &.active {
+          color: #fafafa;
+          box-shadow: 0 3px 0 0 #6366f1;
+        }
+
+        .tags {
+          margin-left: 8px;
+          margin-right: 0;
+        }
+      }
+    }
+
+    select {
+      font-family: 'Inter', sans-serif;
+      width: 78px;
+      height: 36px;
+      background-color: #18181b;
       color: #a1a1aa;
-      font-weight: 600;
-      margin-right: 20px;
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #474747;
     }
   }
 
@@ -46,7 +84,7 @@
           font-size: 12px;
           text-align: left;
           &:first-child {
-            flex: 0 0 40%;
+            flex: 0 0 38%;
           }
           flex: 1;
           padding: 10px 20px;
@@ -76,19 +114,46 @@
         }
 
         td {
+          display: flex;
+          align-items: center;
           font-size: 12px;
           text-align: left;
+          flex: 1;
+          padding: 16px 20px;
 
           &:first-child {
-            flex: 0 0 40%;
+            flex: 0 0 38%;
 
             p {
               margin: 0 0 8px 0;
             }
           }
 
-          flex: 1;
-          padding: 10px 20px;
+          .checkbox {
+            margin-right: 24px;
+
+            input[type='checkbox'] {
+              display: grid;
+              place-content: center;
+              appearance: none;
+              margin: 0;
+              border-radius: 4px;
+              width: 16px;
+              height: 16px;
+              background-color: #27272a;
+              border: 1px solid #3f3f46;
+
+              &:checked::after {
+                content: '';
+                //border: 1px solid #3f3f46;
+                border-radius: 4px;
+                width: 16px;
+                height: 16px;
+                background: #6366f1 url('./assets/checkmark.svg') no-repeat
+                  center;
+              }
+            }
+          }
         }
       }
     }
@@ -104,25 +169,38 @@
     background-color: #27272a;
     margin-right: 12px;
 
-    &.critical {
+    &.critical,
+    &.high,
+    &.medium,
+    &.create,
+    &.open,
+    &.assets {
       color: #fafafa;
+    }
+
+    &.critical,
+    &.high,
+    &.medium &.none {
+      padding: 2px 12px;
+    }
+
+    &.critical {
       border: 1px solid #ef4444;
       background-color: rgba(220, 38, 38, 0.3);
     }
 
     &.high {
-      color: #fafafa;
       border: 1px solid #d97706;
       background-color: rgba(217, 119, 6, 0.3);
     }
 
     &.medium {
-      color: #fafafa;
       border: 1px solid #ca8a04;
       background-color: rgba(202, 138, 4, 0.3);
     }
 
     &.none {
+      padding: 2px 12px;
       border: 1px solid #3f3f46;
       background-color: #18181b;
     }
@@ -130,8 +208,7 @@
     &.create,
     &.open {
       display: inline-flex;
-      padding: 3px 6px;
-      color: #fafafa;
+      padding: 4px 12px;
       margin-right: 0;
       font-weight: 600;
     }
@@ -142,29 +219,29 @@
       font-weight: 600;
     }
 
-    &.assets {
-      color: #fafafa;
-    }
-
     img {
       margin-right: 8px;
     }
   }
 
   .view-all {
-    width: 100%;
     color: #6366f1;
     background-color: #000;
     padding: 20px 0;
     font-size: 14px;
-    font-weight: 700;
+    border-left: 1px solid #474747;
+    border-right: 1px solid #474747;
+    border-bottom: 1px solid #474747;
 
     a {
+      font-weight: 700;
       &:hover {
         color: #fff;
+        transition: color 0.4s;
 
         svg > path {
           fill: #fff;
+          transition: fill 0.4s;
         }
       }
     }
