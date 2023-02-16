@@ -61,4 +61,20 @@
   img {
     margin-right: 8px;
   }
+
+  &:not(.open, .create):has(img) {
+    display: flex;
+    padding: 0;
+    border: 0;
+    background: 0;
+
+    img {
+      margin: 0;
+    }
+  }
+}
+
+.tags-contianer {
+  display: flex;
+  align-items: center;
 }

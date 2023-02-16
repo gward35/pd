@@ -8,16 +8,18 @@ import './App.scss'
 
 function App() {
   const [$data, $setData] = useState<DataType>({ headers: [], rows: [] })
+  const [$isLoading, $setIsLoading] = useState(true)
 
   useEffect(() => {
     $setData(data)
+    $setIsLoading(false)
   }, [])
 
   return (
     <div className="App">
       <div className="table-container">
         <Filter />
-        <Table data={$data} />
+        {$isLoading ? 'Loading ...' : <Table data={$data} />}
         <ViewAll content="View All Vulnerabilities" />
       </div>
     </div>

@@ -1,5 +1,6 @@
 import CreateJira from '../assets/create.svg'
 import OpenJira from '../assets/open.svg'
+import Badge from '../assets/badge.svg'
 import { Data } from '../types/types'
 
 const TableRow = (props: { data: Data }) => {
@@ -12,10 +13,10 @@ const TableRow = (props: { data: Data }) => {
         </div>
         <div>
           <p>{props.data.title}</p>
-          <div>
+          <div className="tags-contianer">
             {props.data.tags.map((t, i) => (
               <span className="tags" key={i}>
-                {t}
+                {t === 'status' ? <img alt="badge" src={Badge} /> : t}
               </span>
             ))}
           </div>
