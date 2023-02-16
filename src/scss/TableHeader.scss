@@ -1,0 +1,20 @@
+tr {
+  display: flex;
+  align-items: center;
+
+  .table-header {
+    display: flex;
+    color: #a1a1aa;
+    font-size: 12px;
+    text-align: left;
+    &:first-child {
+      flex: 0 0 38%;
+    }
+    flex: 1;
+    padding: 10px 20px;
+
+    img {
+      margin-left: 8px;
+    }
+  }
+}

@@ -1,0 +1,30 @@
+.table-row {
+  display: flex;
+  color: #fff;
+  align-items: center;
+  border: 1px solid transparent;
+
+  &:hover {
+    background-color: rgba(63, 63, 70, 0.5);
+    border-top: 1px solid #3f3f46;
+    border-bottom: 1px solid #3f3f46;
+    transition: background-color 0.4s;
+  }
+
+  td {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    text-align: left;
+    flex: 1;
+    padding: 16px 20px;
+
+    &:first-child {
+      flex: 0 0 38%;
+
+      p {
+        margin: 0 0 8px 0;
+      }
+    }
+  }
+}
