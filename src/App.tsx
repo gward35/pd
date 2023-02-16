@@ -22,10 +22,17 @@ function App() {
           <thead>
             <tr>
               {$data?.headers.map((d, i) => (
-                <th key={i}>
-                  {d}
-                  <img alt="sort icon" src={TableSort} />
-                </th>
+                <>
+                  <th key={i}>
+                    {i === 0 ? (
+                      <div className="checkbox">
+                        <input type="checkbox" id="title" name="title" />
+                      </div>
+                    ) : null}
+                    {d}
+                    <img alt="sort icon" src={TableSort} />
+                  </th>
+                </>
               ))}
             </tr>
           </thead>

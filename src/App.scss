@@ -4,7 +4,7 @@ body {
 }
 
 #root {
-  max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -12,7 +12,7 @@ body {
 }
 
 .table-container {
-  width: 1120px;
+  width: 100%;
 
   .filter-container {
     display: flex;
@@ -29,6 +29,7 @@ body {
       padding-left: 0;
 
       li {
+        cursor: pointer;
         list-style: none;
         color: #a1a1aa;
         font-size: 14px;
@@ -49,6 +50,9 @@ body {
     }
 
     select {
+      appearance: none;
+      background: url('./assets/chevron-up-down.svg') no-repeat center;
+      background-position-x: 55px;
       font-family: 'Inter', sans-serif;
       width: 78px;
       height: 36px;
@@ -127,37 +131,6 @@ body {
 
             p {
               margin: 0 0 8px 0;
-            }
-          }
-
-          .checkbox {
-            margin-right: 24px;
-
-            input[type='checkbox'] {
-              display: grid;
-              place-content: center;
-              appearance: none;
-              margin: 0;
-              border-radius: 4px;
-              width: 16px;
-              height: 16px;
-              background-color: #27272a;
-              border: 1px solid #3f3f46;
-              cursor: pointer;
-
-              &:after {
-                content: '';
-                transition: background-color 0.8s;
-              }
-
-              &:checked::after {
-                content: '';
-                border-radius: 4px;
-                width: 16px;
-                height: 16px;
-                background: #6366f1 url('./assets/checkmark.svg') no-repeat
-                  center;
-              }
             }
           }
         }
@@ -246,15 +219,16 @@ body {
       width: 100%;
 
       svg {
+        padding-left: 4px;
         transition: transform 0.5s ease-out;
       }
 
       &:hover {
         color: #fff;
-        transform: translate(-6px, 0);
+        transform: translate(-4px, 0);
 
         svg {
-          transform: translate(8px, 0) scale(1.1);
+          transform: translate(10px, 0) scale(1.1);
         }
 
         svg > path {
@@ -262,6 +236,41 @@ body {
           transition: fill 0.4s;
         }
       }
+    }
+  }
+}
+
+.checkbox {
+  margin-right: 24px;
+
+  input[type='checkbox'] {
+    display: grid;
+    place-content: center;
+    appearance: none;
+    margin: 0;
+    border-radius: 4px;
+    width: 16px;
+    height: 16px;
+    background-color: #27272a;
+    border: 1px solid #3f3f46;
+    cursor: pointer;
+
+    &:before {
+      content: '';
+      transition: background-color 0.8s;
+    }
+
+    &:after {
+      content: '';
+      transition: background-color 0.8s;
+    }
+
+    &:checked::after {
+      content: '';
+      border-radius: 4px;
+      width: 16px;
+      height: 16px;
+      background: #6366f1 url('./assets/checkmark.svg') no-repeat center;
     }
   }
 }

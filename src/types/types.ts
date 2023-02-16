@@ -11,3 +11,9 @@ export interface Data {
   status: string
   tags: string[]
 }
+
+export interface NavDataType {
+  id: number
+  title: string
+  count: number
+}

@@ -1,16 +1,27 @@
+import { useEffect, useState } from 'react'
+import { navData } from '../data/data'
+import { NavDataType } from '../types/types'
+
 const Filter = () => {
+  const [$data, $setData] = useState<NavDataType[]>([])
+  const [$active, $setActive] = useState(0)
+
+  useEffect(() => {
+    $setData(navData)
+  }, [])
+
   return (
     <nav className="filter-container">
       <ul>
-        <li className="active">
-          Vulnerabilities <span className="tags">20</span>
-        </li>
-        <li>
-          Assets <span className="tags">20</span>
-        </li>
-        <li>
-          Archive <span className="tags">20</span>
-        </li>
+        {$data.map((d) => (
+          <li
+            key={d.id}
+            className={$active === d.id ? 'active' : ''}
+            onClick={() => $setActive(d.id)}
+          >
+            {d.title} <span className="tags">{d.count}</span>
+          </li>
+        ))}
       </ul>
       <select>
         <option value="">Filter</option>

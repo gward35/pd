@@ -1,4 +1,4 @@
-import { DataType } from '../types/types'
+import { DataType, NavDataType } from '../types/types'
 
 export const data: DataType = {
   headers: ['Vulnerability', 'Date Found', 'Risk', 'Affected Assets', 'Status'],
@@ -61,3 +61,9 @@ export const data: DataType = {
     },
   ],
 }
+
+export const navData: NavDataType[] = [
+  { id: 0, title: 'Vulnerabilities', count: 20 },
+  { id: 1, title: 'Assets', count: 20 },
+  { id: 2, title: 'Archive', count: 20 },
+]
